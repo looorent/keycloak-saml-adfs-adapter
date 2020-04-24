@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'be.looorent'
+version '0.0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly (
+        "org.keycloak:keycloak-saml-core-public:$keycloakVersion",
+        "org.keycloak:keycloak-server-spi:$keycloakVersion",
+        "org.keycloak:keycloak-services:$keycloakVersion"
+    )
+    testCompile (
+            "org.keycloak:keycloak-saml-core-public:$keycloakVersion",
+            "org.keycloak:keycloak-server-spi:$keycloakVersion",
+            "org.keycloak:keycloak-services:$keycloakVersion",
+            "junit:junit:4.12"
+    )
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
+}
+
+task copyJar {
+    copy {
+        into "dist"
+        from "build/libs/keycloak-saml-adfs-adapter-${version}.jar"
+    }
+}
+
+build.finalizedBy(copyJar)
+
+test {
+    useJUnitPlatform {}
+}
