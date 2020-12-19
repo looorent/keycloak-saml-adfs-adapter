@@ -1,6 +1,3 @@
-
-!!!!! This JAR is not ready for production. Waiting for https://issues.redhat.com/browse/KEYCLOAK-13950 to be merged.
-
 # Keycloak - SAML adapter for ADFS
 
 This adapter aims at adding ADFS specific features such as `username` and `login_hint` as described in https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/a8622e66-2285-43c0-bbb9-abfcecdaed86
@@ -11,13 +8,13 @@ SAML's Subject element can prefill the username input field during the login pro
 `Subject` is an optional standard element of SAML requests: See https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf, line 2017 and below.
 However, `username` and `login_hint` are not.
 
-This adapter read the subject in the SAML request and forward it to SAML IDP.
+This adapter reads the subject in the SAML request and forward it to SAML IDP.
 
 Please note this adapter has been designed for ADFS. However, many other IDP can take advantage of these features.
 
 ## Keycloak Support
 
-* Support for Keycloak 9+
+* Support for Keycloak 12+
 
 ## Supported features
 
@@ -27,16 +24,16 @@ Please note this adapter has been designed for ADFS. However, many other IDP can
 
 ### Standalone install
 
-* Download `dist/keycloak-saml-adfs-adapter-0.0.1.jar` from this repository
+* Download `dist/keycloak-saml-adfs-adapter-0.0.2.jar` from this repository
 * Add it to `$KEYCLOAK_HOME/standalone/deployments/`
 
 ### Docker install
 
 If you are using the official Docker image, here is a `Dockerfile` that automate the install procedure described above:
 ```
-FROM jboss/keycloak:9.0.0
+FROM jboss/keycloak:12.0.1
 
-COPY keycloak-saml-adfs-adapter-0.0.1.jar /opt/jboss/keycloak/standalone/deployments/keycloak-saml-adfs-adapter.jar
+COPY keycloak-saml-adfs-adapter-0.0.2.jar /opt/jboss/keycloak/standalone/deployments/keycloak-saml-adfs-adapter.jar
 ```
 
 ## Use case
