@@ -31,9 +31,9 @@ Please note this adapter has been designed for ADFS. However, many other IDP can
 
 If you are using the official Docker image, here is a `Dockerfile` that automate the install procedure described above:
 ```
-FROM quay.io/keycloak/keycloak:17.0.0
+FROM quay.io/keycloak/keycloak:18.0.0
 
-COPY keycloak-saml-adfs-adapter-0.0.4.jar /opt/jboss/keycloak/standalone/deployments/keycloak-saml-adfs-adapter.jar
+COPY keycloak-saml-adfs-adapter-0.0.5.jar /opt/jboss/keycloak/standalone/deployments/keycloak-saml-adfs-adapter.jar
 ```
 
 ## Use case
