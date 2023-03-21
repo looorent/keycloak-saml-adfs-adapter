@@ -33,7 +33,7 @@ If you are using the official Docker image, here is a `Dockerfile` that automate
 ```
 FROM quay.io/keycloak/keycloak:21.0.0
 
-COPY keycloak-saml-adfs-adapter-1.0.2.jar /opt/keycloak/providers/keycloak-saml-adfs-adapter.jar
+COPY keycloak-saml-adfs-adapter-21.0.0.jar /opt/keycloak/providers/keycloak-saml-adfs-adapter.jar
 ```
 
 ## Use case
