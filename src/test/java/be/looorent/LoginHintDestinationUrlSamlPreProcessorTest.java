@@ -6,7 +6,7 @@ import java.net.URI;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class LoginHintDestinationUrlSamlPreProcessorTest {
 
@@ -56,11 +56,4 @@ public class LoginHintDestinationUrlSamlPreProcessorTest {
         URI actual = processor.replaceLoginHint(destinationWithPlaceholder, "hello@world.com");
         assertThat(actual, is(equalTo(URI.create("https://whatever.adfs.net/adfs/test?username=hello%40world.com&login_hint=hello%40world.com"))));
     }
-
-    // TODO verify how to remove Œ
-//    @Test
-//    public void replaceLoginHintInPlaceholderWithInvalidCharactersSubject() {
-//        URI actual = processor.replaceLoginHint(destinationWithPlaceholder, "helloŒ@wŒorld.com");
-//        assertThat(actual, is(equalTo(URI.create("https://whatever.adfs.net/adfs/test?username=hello%40world.com&login_hint=hello%40world.com"))));
-//    }
 }
