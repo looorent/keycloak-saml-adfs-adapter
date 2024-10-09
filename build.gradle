@@ -3,7 +3,7 @@ plugins {
 }
 
 group "be.looorent"
-version "25.0.0"
+version "26.0.0"
 
 sourceCompatibility = 1.21
 
